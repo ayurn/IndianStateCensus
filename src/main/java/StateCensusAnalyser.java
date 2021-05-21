@@ -33,5 +33,4 @@ public class StateCensusAnalyser {
         }
         return count;
     }
-
 }
