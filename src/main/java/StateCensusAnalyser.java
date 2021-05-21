@@ -27,7 +27,7 @@ public class StateCensusAnalyser {
                     "delimiter or header is improper");
         } catch (NoSuchFileException exception) {
             throw new CensusAnalyserException(CensusAnalyserException.exceptionType.FILE_NOT_FOUND,
-                    "file is not found");
+                    "file not found");
         } catch (IOException exception) {
             exception.printStackTrace();
         }
