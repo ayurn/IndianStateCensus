@@ -9,6 +9,8 @@ public class StateCensusAnalyserTest {
     public final String CSV_FILE_PATH_WRONG_DELIMITER = "C:\\Users\\AYUR\\IdeaProjects\\IndianStateCensus\\src\\main\\resources\\IndiaStateCensusDataWrongDelimiter.csv";
     public final String CSV_FILE_PATH_WRONG_HEADER = "C:\\Users\\AYUR\\IdeaProjects\\IndianStateCensus\\src\\main\\resources\\IndiaStateCensusDataWrongHeader.csv";
 
+    public final String STATE_CODE_FILE_PATH = "C:\\Users\\AYUR\\IdeaProjects\\IndianStateCensus\\src\\main\\resources\\IndiaStateCode.csv";
+    public final String WRONG_TYPE_STATE_CODE_FILE_PATH = "C:\\Users\\AYUR\\IdeaProjects\\IndianStateCensus\\src\\main\\resources\\IndiaStateCode.txt";
 
     private static StateCensusAnalyser censusAnalyser;
 
@@ -68,4 +70,15 @@ public class StateCensusAnalyserTest {
         }
     }
 
+    // TC-2.1
+    @Test
+    public void givenStateCodeCsvFile_CheckNumberOfRecords_ShouldReturnNumber() {
+        try {
+            StateCensusAnalyser stateDataLoader = new StateCensusAnalyser();
+            int numberOfStates = stateDataLoader.loadStateCodeData(STATE_CODE_FILE_PATH);
+            Assertions.assertEquals(37, numberOfStates);
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+    }
 }
