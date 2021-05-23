@@ -103,4 +103,15 @@ public class StateCensusAnalyserTest {
             Assertions.assertEquals("file not found", exception.getMessage());
         }
     }
+
+    // TC-2.4
+    @Test
+    public void givenDelimiterErrorStateCodeFile_CheckPresentOrNot_ShouldReturnCustomException() {
+        try {
+            StateCensusAnalyser stateDataLoader = new StateCensusAnalyser();
+            stateDataLoader.loadStateCodeData(STATE_CODE_FILE_PATH);
+        } catch (CensusAnalyserException exception) {
+            Assertions.assertEquals("delimiter or header is improper", exception.getMessage());
+        }
+    }
 }
