@@ -114,4 +114,15 @@ public class StateCensusAnalyserTest {
             Assertions.assertEquals("delimiter or header is improper", exception.getMessage());
         }
     }
+
+    // TC-2.5
+    @Test
+    public void givenHeaderErrorStateCodeFile_CheckPresentOrNot_ShouldReturnCustomException() {
+        try {
+            StateCensusAnalyser stateDataLoader = new StateCensusAnalyser();
+            stateDataLoader.loadStateCodeData(STATE_CODE_FILE_PATH);
+        } catch (CensusAnalyserException exception) {
+            Assertions.assertEquals("delimiter or header is improper", exception.getMessage());
+        }
+    }
 }
