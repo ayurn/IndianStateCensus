@@ -92,4 +92,15 @@ public class StateCensusAnalyserTest {
             Assertions.assertEquals("file not found", exception.getMessage());
         }
     }
+
+    // TC-2.3
+    @Test
+    public void givenWrongTypeStateCodeCsvFile_CheckCsvOrNot_ShouldReturnException() {
+        try {
+            StateCensusAnalyser stateDataLoader = new StateCensusAnalyser();
+            stateDataLoader.loadStateCodeData(WRONG_TYPE_STATE_CODE_FILE_PATH);
+        } catch (CensusAnalyserException exception) {
+            Assertions.assertEquals("file not found", exception.getMessage());
+        }
+    }
 }
